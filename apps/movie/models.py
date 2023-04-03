@@ -29,5 +29,5 @@ class Movie(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Аниме'
-        verbose_name_plural = 'Аниме'
+        verbose_name = 'Полнометражный'
+        verbose_name_plural = 'Полномеьражные'
