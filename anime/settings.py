@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     #apps
     'apps.settings',
+    'apps.movie',
 ]
 
 MIDDLEWARE = [
