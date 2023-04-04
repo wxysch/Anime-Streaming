@@ -5,7 +5,7 @@ from apps.movie.models import Movie,Genre
 def index(request):
     setting = Setting.objects.latest('id')
     sliders = Slider.objects.all()
-    movies = Movie.objects.all()
+    movies = Movie.objects.all().order_by('?')
     context = {
         'setting' : setting,
         'sliders' : sliders,
