@@ -50,9 +50,7 @@
                                             <li><span>Студия:</span> {{ movie.studio }}</li>
                                             <li><span>Дата релиза:</span> {{ movie.dateAired }}</li>
                                             <li><span>Статус:</span> {{ movie.status }}</li>
-                                            {% for genre in genres %}
-                                            <li><span>Жанр:</span> {{ genre.genre }}</li>
-                                            {% endfor %}
+                                            <li><span>Жанр:</span> {{ movie.genres }}</li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -61,15 +59,17 @@
                                             <li><span>Рэйтинг:</span> {{ movie.rating }}</li>
                                             <li><span>Длительность:</span> {{ movie.duration }}</li>
                                             <li><span>Качество:</span> HD</li>
-                                            <li><span>Просмотры:</span> 131,541</li>
+                                            <li><span>Просмотры:</span> {{movie.visitcount}}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="anime__details__btn">
                                 <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="#" class="watch-btn"><span>Watch Now</span> <i
-                                    class="fa fa-angle-right"></i></a>
+                                <form method="POST">
+                                    <a href="{% url 'video' movie.id %}" class="watch-btn"><span>Смотреть</span> <i
+                                        class="fa fa-angle-right"></i></a>
+                                </form>
                                 </div>
                             </div>
                         </div>

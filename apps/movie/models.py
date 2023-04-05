@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 class Genre(models.Model):
@@ -34,3 +35,18 @@ class Movie(models.Model):
     class Meta:
         verbose_name = 'Полнометражный'
         verbose_name_plural = 'Полномеьражные'
+
+class Video(models.Model):
+    title = models.CharField(max_length=255)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    file = models.FileField(
+        upload_to='video/',
+        validators=[FileExtensionValidator(allowed_extensions=['mp4'])]
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
