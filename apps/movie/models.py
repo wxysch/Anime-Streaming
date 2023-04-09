@@ -18,6 +18,8 @@ class Movie(models.Model):
     description = models.TextField()
     poster = models.ImageField(upload_to='poster/')
     restrictions = models.CharField(max_length=50)
+    popular = models.BooleanField(default=False,blank=True,null=True)
+    liveaction = models.BooleanField(default=False,blank=True,null=True)
     typeof = models.CharField(max_length=255)
     studio = models.CharField(max_length=255)
     dateAired = models.CharField(max_length=150)
@@ -25,7 +27,6 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre)
     visitcount = models.IntegerField(default=0) 
     scores = models.BigIntegerField(default=0)
-    visitcount = models.IntegerField(default=0)
     rating = models.CharField(max_length=100)
     duration = models.CharField(max_length=100)
 
@@ -34,7 +35,7 @@ class Movie(models.Model):
 
     class Meta:
         verbose_name = 'Полнометражный'
-        verbose_name_plural = 'Полномеьражные'
+        verbose_name_plural = 'Полнометражные'
 
 class Video(models.Model):
     title = models.CharField(max_length=255)
