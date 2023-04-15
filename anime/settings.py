@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'apps.settings',
     'apps.movie',
     'apps.users',
+    'apps.blog',
 ]
 
 MIDDLEWARE = [
