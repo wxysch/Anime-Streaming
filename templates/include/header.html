@@ -18,13 +18,13 @@
                             <li><a href="./categories.html">Категории <span class="arrow_carrot-down"></span></a>
                                 <ul class="dropdown">
                                     <li><a href="./anime-details.html">Все Аниме</a></li>
-                                    <li><a href="./anime-watching.html">Полнометражные</a></li>
-                                    <li><a href="./blog-details.html">Новости</a></li>
+                                    <li><a href="{% url 'all_movies' %}">Полнометражные</a></li>
+                                    <li><a href="{% url 'blog' %}">Новости</a></li>
                                     <li><a href="{% url 'register' %}">Регистрация</a></li>
                                     <li><a href="{% url 'login' %}">Войти</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Новости</a></li>
+                            <li><a href="{% url 'blog' %}">Новости</a></li>
                             <li><a href="#">Связаться</a></li>
                         </ul>
                     </nav>

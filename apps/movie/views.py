@@ -13,6 +13,15 @@ def movie_detail(request,id):
     }
     return render(request, 'anime/movie-details.html',context)
 
+def all_movies(request):
+    setting = Setting.objects.latest('id')
+    movies = Movie.objects.all()
+    context = {
+        'setting' : setting,
+        'movies' : movies,
+    }
+    return render(request, 'anime/all_movies.html',context)
+
 def video_watch(request,id):
     movie = Movie.objects.get(id=id)
     video = Video.objects.get(id=id)

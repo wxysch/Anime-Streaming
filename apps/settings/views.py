@@ -12,3 +12,5 @@ def index(request):
         'movies' : movies,
     }
     return render(request,'anime/index.html',context)
+
+    
