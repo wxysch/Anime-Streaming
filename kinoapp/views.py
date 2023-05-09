@@ -6,10 +6,15 @@ from .models import *
 def index(request):
 
     rows = Products.objects.all()[0:6]
+    topViews = Products.objects.order_by("views")[::-1][0:6]
+
+    slider = Slider.objects.order_by("queueNumber")
 
     context = {
         'title':'index',
-        'rows': rows
+        'rows': rows,
+        'slider':slider,
+        'topViews':topViews
     }
     return render(request, 'kinoapp/index.html', context)
 
@@ -56,5 +61,30 @@ def animeDetail(request, id):
 
     return render(request, 'kinoapp/anime-details.html',context)
 
-def signup(request):
-    return render(request,'kinoapp/signup.html')
+
+from django.views.decorators.csrf import csrf_protect 
+@csrf_protect 
+def searhLogic(request):
+
+    searchName = request.POST.get('searchName')
+    searchName = searchName.lower()
+
+    print(searchName)
+    all = Products.objects.all()
+    values = []
+
+    for item in all:
+        name = item.name.lower()
+        description = item.description.lower()
+
+        try:
+            if name.index(searchName) != -1 or description.index(searchName) != -1:
+                values.append(item)
+        except:
+            pass
+
+    context = {
+        'rows':values
+    }
+
+    return render(request, 'kinoapp/search.html', context)

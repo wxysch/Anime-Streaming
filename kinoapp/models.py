@@ -127,3 +127,11 @@ class OurBlog(models.Model):
     class Meta:
         verbose_name = 'Картинки блога'
         verbose_name_plural = 'Картинки блога'
+
+class Slider(models.Model):
+    productObject = models.ForeignKey(Products, on_delete=models.CASCADE)
+    queueNumber = models.IntegerField(default=1)
+
+    class Meta:
+        verbose_name = 'Слайдер'
+        verbose_name_plural = 'Слайдер'
