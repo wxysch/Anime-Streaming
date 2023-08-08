@@ -88,3 +88,9 @@ def searhLogic(request):
     }
 
     return render(request, 'kinoapp/search.html', context)
+
+def func(A):
+    pass
+
+def asd(req):
+    ...
